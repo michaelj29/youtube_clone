@@ -38,6 +38,8 @@ def user_comments(request):
 @permission_classes([IsAuthenticated])
 def update_user_comments(request, pk):
 
+    print(
+        'User ', f"{request.user.id} {request.user.username}")
     comment = get_object_or_404(Comment, pk=pk)
     if request.method == 'PUT':
         serializer = CommentSerializer(comment, data=request.data)
@@ -45,6 +47,6 @@ def update_user_comments(request, pk):
         serializer.save()
         return Response(serializer.data, status=status.HTTP_200_OK)
     elif request.method == 'GET':
-        serializer = CommentSerializer(comment, data=request.data)
-        serializer.is_valid(raise_exception=True)
+        serializer = CommentSerializer(comment)
+        
         return Response(serializer.data, status=status.HTTP_200_OK)
