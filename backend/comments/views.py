@@ -55,13 +55,15 @@ def update_user_comments(request, pk):
 @api_view(['GET', 'PUT', 'POST'])
 @permission_classes([IsAuthenticated])
 def user_comments(request, video_id):
-
-    video_id = Comment.objects.filter(video_id)
+    
+    video = Comment.objects.filter(video_id = video_id)
     if request.method == 'GET':
-        serializer = CommentSerializer(video_id)
+        for videos in video: 
+            print(f'{videos.id}')
+        serializer = CommentSerializer(video, many=True)
         return Response(serializer.data)
     elif request.method == 'PUT':
-        serializer = CommentSerializer(video_id, data=request.data)
+        serializer = CommentSerializer(video, data=request.data)
         serializer.is_valid(raise_exception=True)
         serializer.save()
         return Response(serializer.data)
