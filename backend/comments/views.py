@@ -15,23 +15,23 @@ def comments_list(request):
     serializer = CommentSerializer(comment, many=True)
     return Response(serializer.data, status=status.HTTP_200_OK)
 
-@api_view(['GET', 'PUT', 'POST'])
-@permission_classes([IsAuthenticated])
-def user_comments(request):
+# @api_view(['GET', 'PUT', 'POST'])
+# @permission_classes([IsAuthenticated])
+# def user_comments(request, video_id):
 
-    print(
-        'User ', f"{request.user.id} {request.user.email} {request.user.username}")
+#     print(
+#         'User ', f"{request.user.id} {request.user.email} {request.user.username}")
         
-    if request.method == 'POST':
-        serializer = CommentSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save(user=request.user)
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-    elif request.method == 'GET':
-        comments = Comment.objects.filter(user_id=request.user.id)
-        serializer = CommentSerializer(comments, many=True)
-        return Response(serializer.data)    
+#     if request.method == 'POST':
+#         serializer = CommentSerializer(data=request.data)
+#         if serializer.is_valid():
+#             serializer.save(user=request.user)
+#             return Response(serializer.data, status=status.HTTP_201_CREATED)
+#         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+#     elif request.method == 'GET':
+#         comments = Comment.objects.filter(video_id=request.user.id)
+#         serializer = CommentSerializer(comments, many=True)
+#         return Response(serializer.data)    
 
 
 @api_view(['PUT', 'GET'])
@@ -50,3 +50,18 @@ def update_user_comments(request, pk):
         serializer = CommentSerializer(comment)
         
         return Response(serializer.data, status=status.HTTP_200_OK)
+
+
+@api_view(['GET', 'PUT', 'POST'])
+@permission_classes([IsAuthenticated])
+def user_comments(request, video_id):
+
+    video_id = Comment.objects.filter(video_id)
+    if request.method == 'GET':
+        serializer = CommentSerializer(video_id)
+        return Response(serializer.data)
+    elif request.method == 'PUT':
+        serializer = CommentSerializer(video_id, data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return Response(serializer.data)
