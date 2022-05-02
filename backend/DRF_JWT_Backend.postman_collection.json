@@ -49,7 +49,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"username\": \"awesomesauce\",\r\n    \"password\": \"password1@\"\r\n}",
+							"raw": "{\r\n    \"username\": \"cooldude\",\r\n    \"password\": \"password1@\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -259,13 +259,13 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjUyMzcxMTI4LCJpYXQiOjE2NTE1MDcxMjgsImp0aSI6IjY5YjgxZjgwNWE3ODRmMjY5Yjk1NWNkMjI0MTI5ZWExIiwidXNlcl9pZCI6NCwidXNlcm5hbWUiOiJhd2Vzb21lc2F1Y2UiLCJmaXJzdF9uYW1lIjoiSmFja2llIn0._kEnRJRkT-r4jcKBnnzfWon5aGwDrjoyEnfID-IfsuI",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjUyMzg2OTM3LCJpYXQiOjE2NTE1MjI5MzcsImp0aSI6IjJhOTRkM2JiMjBiZDQ1ODk4YzM5ZTliYjA5ZDBhMWFiIiwidXNlcl9pZCI6MywidXNlcm5hbWUiOiJjb29sZHVkZSIsImZpcnN0X25hbWUiOiJSb2JlcnQifQ.ep1TuLPbMBEDKQnp9hnwYwRPTfcl-2RS5IbC8Mnmt6o",
 								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"video_id\": \"fBkDYEc4vjU\",\n    \"text\": \"Totally Check this out!!\"\n\n}",
+							"raw": "{\n    \"video_id\": \"HZh30qUuD2I\",\n    \"text\": \"rad!!\"\n\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -304,7 +304,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"id\": 1,\n    \"video_id\": \"https://youtu.be/fBkDYEc4vjU\",\n    \"text\": \"Totally Check this out!!!!\",\n    \"likes\": 1,\n    \"dislikes\": 0,\n    \"user_id\": 3\n}",
+							"raw": "{\n    \"id\": 1,\n    \"video_id\": \"https://youtu.be/fBkDYEc4vjU\",\n    \"text\": \"Don't Totally Check this out!!!!\",\n    \"likes\": 10,\n    \"dislikes\": 0,\n    \"user_id\": 3\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -312,7 +312,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/comments/1/",
+							"raw": "http://127.0.0.1:8000/api/comments/1/update",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -325,7 +325,7 @@
 								"api",
 								"comments",
 								"1",
-								""
+								"update"
 							]
 						}
 					},
@@ -343,7 +343,37 @@
 							}
 						],
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/comments/2/",
+							"raw": "http://127.0.0.1:8000/api/comments/HZh30qUuD2I",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"comments",
+								"HZh30qUuD2I"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET_Comments_Replies",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjUyMTMyOTM4LCJpYXQiOjE2NTEyNjg5MzgsImp0aSI6ImI1NGJmOGMyYjUzNTQxNzQ4ZDA2YjFkYjcwZjE0NjYxIiwidXNlcl9pZCI6NCwidXNlcm5hbWUiOiJhd2Vzb21lc2F1Y2UiLCJmaXJzdF9uYW1lIjoiSmFja2llIn0.ExqKSnw75pDU1LMPCuckZIEqXt0QwKjh-KSDtP3Hil0",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/comments/2/replies/",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -356,6 +386,48 @@
 								"api",
 								"comments",
 								"2",
+								"replies",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create_Reply",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjUyMTMyOTM4LCJpYXQiOjE2NTEyNjg5MzgsImp0aSI6ImI1NGJmOGMyYjUzNTQxNzQ4ZDA2YjFkYjcwZjE0NjYxIiwidXNlcl9pZCI6NCwidXNlcm5hbWUiOiJhd2Vzb21lc2F1Y2UiLCJmaXJzdF9uYW1lIjoiSmFja2llIn0.ExqKSnw75pDU1LMPCuckZIEqXt0QwKjh-KSDtP3Hil0",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\r\n    \"text\": \"rad!!!!\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/comments/2/replies/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"comments",
+								"2",
+								"replies",
 								""
 							]
 						}
