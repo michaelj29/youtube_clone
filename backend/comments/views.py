@@ -17,7 +17,6 @@ def comments_list(request):
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
 def post_comments(request):
-
     if request.method == 'POST':
         serializer = CommentSerializer(data=request.data)
         if serializer.is_valid():
@@ -31,8 +30,6 @@ def post_comments(request):
 @permission_classes([IsAuthenticated])
 def update_user_comments(request, pk):
 
-    print(
-        'User ', f"{request.user.id} {request.user.username}")
     comment = get_object_or_404(Comment, pk=pk)
     if request.method == 'PUT':
         serializer = CommentSerializer(comment, data=request.data)
@@ -41,18 +38,14 @@ def update_user_comments(request, pk):
         return Response(serializer.data, status=status.HTTP_200_OK)
     elif request.method == 'GET':
         serializer = CommentSerializer(comment)
-        
         return Response(serializer.data, status=status.HTTP_200_OK)
 
 
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
 def user_comments(request, video_id):
-    
     video = Comment.objects.filter(video_id = video_id)
     if request.method == 'GET':
-        for videos in video: 
-            print(f'{videos.id}')
         serializer = CommentSerializer(video, many=True)
         return Response(serializer.data)
 
