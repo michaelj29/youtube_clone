@@ -1,6 +1,4 @@
-import React, { useState } from 'react';
-import DisplayVideos from '../../components/DisplayVideos/DisplayVideos';
-import { useEffect, useState } from "react";
+import React from 'react';
 
 const SearchResultsPage = () => {
 
@@ -9,7 +7,6 @@ const SearchResultsPage = () => {
     return ( 
         <div>
             Your search Results Below
-            <DisplayVideos videos={videos}/>
 
         </div>
      );

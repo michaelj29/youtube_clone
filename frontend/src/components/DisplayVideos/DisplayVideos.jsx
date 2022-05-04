@@ -7,7 +7,7 @@ const DisplayVideos = ({videos}) => {
                 return (
                     <div>
                         <div>
-                            <img src={video.snippet.thumbnails.default.url} alt="" />
+                            <img onClick={video.snippet.videoId} src={video.snippet.thumbnails.default.url} alt="" />
                         </div>
                         <div>
                             <h1>{video.snippet.title}</h1>

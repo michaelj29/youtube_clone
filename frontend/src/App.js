@@ -18,31 +18,12 @@ import SearchResultsPage from "./pages/SearchResultsPage/SearchResultsPage";
 
 function App() {
 
-  const [searchResults, setSearchResults] = useState([]);
-  const [videos, setVideos] = useState([]);
-
-  useEffect(() => {
-      getSearchResults()
-  }, [])
-
-  async function getSearchResults(searchTerm ='lofi music'){
-          let response = await axios.get(`https://www.googleapis.com/youtube/v3/search?q=${searchTerm}&key=${KEY}&part=snippet&type=video&maxResults=2`);
-          setSearchResults(response.data.items);
-        } 
-
 
   return (
     <div>
       <Navbar />
       <Routes>
-        <Route
-          path="/"
-          element={
-            // <PrivateRoute>
-              <HomePage />
-            // </PrivateRoute>
-          }
-        />
+        <Route path="/" element={<HomePage />}/>
         <Route path="/searchResults" element={<SearchResultsPage />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />

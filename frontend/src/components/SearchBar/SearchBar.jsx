@@ -1,22 +1,25 @@
 import React, { useState } from 'react';
-import { Button, Form } from 'react-bootstrap'
+import { Button, Form, FormControl } from 'react-bootstrap'
 
 
-const SearchBar = (props) => {
+const SearchBar = ({setSearch}) => {
 
     
 
 
     return ( 
         <div>
-            <form>
-                <Form.Control 
-                    type="search"
-                    id="search"
-                    placeholder='search ITube Videos'
+            <Form className="d-flex" onChange={
+                (event)=>{
+                    setSearch(event.target.value)}}>
+                <FormControl
+                type="search"
+                placeholder="Search any topic"
+                className="me-2"
+                aria-label="Search"
                 />
-                <Button type='submit' variant="primary">Search</Button>{' '}
-            </form>
+                <Button variant="outline-success">Search</Button>
+            </Form>
         </div>
 
      );
