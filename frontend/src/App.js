@@ -14,8 +14,23 @@ import Footer from "./components/Footer/Footer";
 
 // Util Imports
 import PrivateRoute from "./utils/PrivateRoute";
+import SearchResultsPage from "./pages/SearchResultsPage/SearchResultsPage";
 
 function App() {
+
+  const [searchResults, setSearchResults] = useState([]);
+  const [videos, setVideos] = useState([]);
+
+  useEffect(() => {
+      getSearchResults()
+  }, [])
+
+  async function getSearchResults(searchTerm ='lofi music'){
+          let response = await axios.get(`https://www.googleapis.com/youtube/v3/search?q=${searchTerm}&key=${KEY}&part=snippet&type=video&maxResults=2`);
+          setSearchResults(response.data.items);
+        } 
+
+
   return (
     <div>
       <Navbar />
@@ -28,6 +43,7 @@ function App() {
             // </PrivateRoute>
           }
         />
+        <Route path="/searchResults" element={<SearchResultsPage />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
       </Routes>

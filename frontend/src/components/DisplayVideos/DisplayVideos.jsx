@@ -1,9 +1,9 @@
 import React from "react";
 
-const DisplayVideos = (props) => {
+const DisplayVideos = ({videos}) => {
     return ( 
         <div>DISPLAY
-            {props.videos.map((video) => {
+            {videos.map((video) => {
                 return (
                     <div>
                         <div>
