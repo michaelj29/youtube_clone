@@ -12,7 +12,6 @@ const SearchBar = (props) => {
                     type="search"
                     id="search"
                     placeholder='search ITube Videos'
-
                 />
                 <Button type='submit' variant="primary">Search</Button>{' '}
             </form>

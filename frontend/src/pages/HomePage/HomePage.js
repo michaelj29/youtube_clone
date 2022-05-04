@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
-import { KEY } from "../../localKey";
+import  { KEY } from "../../localKey";
 
 import axios from "axios";
 import DisplayVideos from "../../components/DisplayVideos/DisplayVideos";
@@ -15,18 +15,19 @@ const HomePage = (props) => {
   useEffect(() => {
     const fetchVideos = async () => {
       try {
-        let response = await axios.get(`https://www.googleapis.com/youtube/v3/search?q=cats&key=${KEY}&part=snippet&type=video&maxResults=5`, {
-          headers: {
-            Authorization: "Bearer " + token,
-          },
+        let response = await axios.get(`https://www.googleapis.com/youtube/v3/search?key=${KEY}&part=snippet&type=video&maxResults=2`, {
+          // headers: {
+          //   Authorization: "Bearer " + token,
+          // },
         });
+        console.log(response.data.items)
         setVideos(response.data.items);
       } catch (error) {
         console.log(error.message);
       }
     };
-    fetchVideos();
-  }, [token]);
+     fetchVideos();
+  }, []);
   return (
       <DisplayVideos videos={videos} />
   );
