@@ -1,13 +1,17 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const DisplayVideos = ({videos}) => {
+
     return ( 
         <div>DISPLAY
             {videos.map((video) => {
                 return (
                     <div>
                         <div>
-                            <img onClick={video.snippet.videoId} src={video.snippet.thumbnails.default.url} alt="" />
+                        <Link to={"/searchResults"}>
+                             <img src={video.snippet.thumbnails.default.url} alt="" />
+                        </Link>
                         </div>
                         <div>
                             <h1>{video.snippet.title}</h1>
