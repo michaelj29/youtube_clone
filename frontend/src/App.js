@@ -23,8 +23,8 @@ function App() {
   const [ videos, setVideos ] = useState([])
   const navigate = useNavigate()
 
-  
-  const fetchVideos = async (searchTerm) => {
+
+  const searchVideos = async (searchTerm) => {
     try {
       let response = await axios.get(`https://www.googleapis.com/youtube/v3/search?q=${searchTerm}&key=${KEY}&part=snippet&type=video&maxResults=2`, {
         // headers: {
@@ -41,7 +41,7 @@ function App() {
   };
   return (
     <div>
-      <Navbar search={fetchVideos} />
+      <Navbar search={searchVideos} />
       <Routes>
         <Route path="/" element={<HomePage />}/>
         <Route path="/searchResults" element={<SearchResultsPage videos={videos} />} />

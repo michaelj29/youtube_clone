@@ -11,9 +11,7 @@ const DisplayVideos = ({videos}) => {
                 return (
                     <div>
                         <div>
-                        <Link to="/searchResults">
-                             <img src={video.snippet.thumbnails.default.url} alt="" />
-                        </Link>
+                             <img src={video.snippet.thumbnails.medium.url} alt="" />
                         </div>
                         <div>
                             <h1>{video.snippet.title}</h1>
