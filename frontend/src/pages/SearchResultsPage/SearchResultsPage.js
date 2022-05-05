@@ -28,7 +28,7 @@ const SearchResultsPage = ({search}) => {
     return ( 
         <div>
           {console.log(videos)}
-
+            HERE ARE THE RESULTS
         </div>
      );
 }
