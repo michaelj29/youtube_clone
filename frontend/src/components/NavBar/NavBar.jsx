@@ -3,6 +3,7 @@ import { useContext } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import AuthContext from "../../context/AuthContext";
 import "./NavBar.css";
+import SearchBar from "../SearchBar/SearchBar"
 
 const Navbar = () => {
   const { logoutUser, user } = useContext(AuthContext);
@@ -14,6 +15,9 @@ const Navbar = () => {
           <Link to="/" style={{ textDecoration: "none", color: "white" }}>
             <b>ITube</b>
           </Link>
+        </li>
+        <li>
+          <SearchBar />
         </li>
         <li>
           {user ? (
