@@ -23,7 +23,7 @@ const VideoPage = () => {
           }
         };
          fetchVideos();
-      }, []);
+      }, [videoId]);
 
     return ( 
         <div>
@@ -49,7 +49,7 @@ const VideoPage = () => {
                         <div>
                             <p>{video.snippet.description}</p>
                         </div>
-                        <Link to={`/video/${videoId}`}>Go To Video</Link>
+                        <Link to={`/video/${video.id.videoId}`}>Go To Video</Link>
                     </div>
                 );
             })}
