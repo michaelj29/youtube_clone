@@ -1,34 +1,40 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import { KEY } from '../../localKey'
+import React, { useEffect } from 'react';
 
-const SearchResultsPage = ({search}) => {
+import { Link, useParams } from 'react-router-dom';
 
-    const [ videos, setVideos ] = useState([])
+const SearchResultsPage = (props) => {
+    const {search} = useParams()
+
 
 
     useEffect(() => {
-        const fetchVideos = async () => {
-          try {
-            let response = await axios.get(`https://www.googleapis.com/youtube/v3/search?q=${search}&key=${KEY}&part=snippet&type=video&maxResults=2`, {
-              // headers: {
-              //   Authorization: "Bearer " + token,
-              // },
-            });
-            console.log(response.data.items)
-            setVideos(response.data.items);
-          } catch (error) {
-            console.log(error.message);
-          }
-        };
-         fetchVideos();
+
       }, []);
 
 
     return ( 
         <div>
-          {console.log(videos)}
-            HERE ARE THE RESULTS
+         <div>
+             Related Videos Go Here
+             {props.videos.map((video) => {
+               const videoId = video.id.videoId
+                return (
+                    <div>
+                        <div>
+                        <img src={video.snippet.thumbnails.default.url} alt="" />
+                        </div>
+                        <div>
+                            <h1>{video.snippet.title}</h1>
+                        </div>
+                        <div>
+                            <p>{video.snippet.description}</p>
+                        </div>
+                        <Link to={`/searchResults/${video.id.videoId}`}>Go To Video</Link>
+                    </div>
+                );
+            })}
+         </div>
+
         </div>
      );
 }

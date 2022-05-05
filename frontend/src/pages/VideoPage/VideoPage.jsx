@@ -33,11 +33,12 @@ const VideoPage = () => {
             width="640" 
             height="360"
             src={`https://www.youtube.com/embed/${videoId}?autoplay=1&origin=http://example.com`}
-            frameborder="0">
+            frameBorder="0">
   </iframe>
          <div>
              Related Videos Go Here
              {videos.map((video) => {
+               
                 return (
                     <div>
                         <div>

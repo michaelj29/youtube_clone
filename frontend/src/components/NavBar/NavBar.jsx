@@ -5,7 +5,8 @@ import AuthContext from "../../context/AuthContext";
 import "./NavBar.css";
 import SearchBar from "../SearchBar/SearchBar"
 
-const Navbar = () => {
+
+const Navbar = (props) => {
   const { logoutUser, user } = useContext(AuthContext);
   const navigate = useNavigate();
   return (
@@ -17,7 +18,7 @@ const Navbar = () => {
           </Link>
         </li>
         <li>
-          <SearchBar />
+          <SearchBar search = {props.search} />
         </li>
         <li>
           {user ? (
