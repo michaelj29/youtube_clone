@@ -1,16 +1,25 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { KEY } from "../../localKey"
+import { KEY } from "../../localKey";
 import axios from "axios";
-import { Link } from "react-router-dom";
+
 
 const VideoPage = () => {
     const params = useParams()
+    const defaultVideo = params && params.videoId
     const [videos, setVideos] = useState([]);
-
+    const [videoId, setVideoId] = useState('defaultVideo')
     // now that you have the id from the url,make a get request ot get the video link
-    const videoId = params && params.videoId
+    // const videoId = params && params.videoId
     
+
+    // const navigate = useNavigate()
+    // navigate(`/video/${videoId}`)
+    
+    const handleClick = (video) => {
+        setVideoId(video)
+    }
+      
     useEffect(() => {
         const fetchVideos = async () => {
           try {
@@ -36,10 +45,13 @@ const VideoPage = () => {
          <div>
              Related Videos Go Here
              {videos.map((video) => {
-                return (
+                console.log(videoId)
+               return (
+
                     <div>
+
                         <div>
-                        <img src={video.snippet.thumbnails.default.url} alt="" />
+                        <img src={video.snippet.thumbnails.default.url} onClick={()=>handleClick(video.id.videoId)} alt="" />
                         </div>
                         <div>
                             <h1>{video.snippet.title}</h1>
@@ -47,8 +59,7 @@ const VideoPage = () => {
                         <div>
                             <p>{video.snippet.description}</p>
                         </div>
-                        {/* Link to video page, passing in the videoId as a URL param */}
-                        <Link to={`/video/${videoId}`}>Go To Video</Link>
+
                     </div>
                 );
             })}
