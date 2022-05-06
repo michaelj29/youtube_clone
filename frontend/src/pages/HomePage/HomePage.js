@@ -1,6 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import useAuth from "../../hooks/useAuth";
+
 import  { KEY } from "../../localKey";
 
 import axios from "axios";
@@ -9,7 +9,6 @@ import DisplayVideos from "../../components/DisplayVideos/DisplayVideos";
 const HomePage = (props) => {
   // The "user" value from this Hook contains the decoded logged in user information (username, first name, id)
   // The "token" value is the JWT token that you will send in the header of any request requiring authentication
-  const [user, token] = useAuth();
   const [videos, setVideos] = useState([]);
 
   useEffect(() => {

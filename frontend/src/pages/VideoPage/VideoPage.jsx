@@ -3,6 +3,7 @@ import { useParams} from "react-router-dom";
 import { KEY } from "../../localKey"
 import axios from "axios";
 import { Link } from "react-router-dom";
+import AddComment from "../../components/AddComment/AddComment";
 
 
 const VideoPage = () => {
@@ -43,6 +44,7 @@ const VideoPage = () => {
            <h3>{title}</h3>
            <p>{description}</p>
           </div>
+          <AddComment />
          <div>
              Related Videos Go Here
              {videos.map((video) => {
