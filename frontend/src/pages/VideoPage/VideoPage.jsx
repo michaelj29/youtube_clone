@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams, useLocation } from "react-router-dom";
+import { useParams} from "react-router-dom";
 import { KEY } from "../../localKey"
 import axios from "axios";
 import { Link } from "react-router-dom";
@@ -32,6 +32,7 @@ const VideoPage = () => {
         <div>
             <iframe 
             id="ytplayer" 
+            title="MyPlayer"
             type="text/html" 
             width="640" 
             height="360"

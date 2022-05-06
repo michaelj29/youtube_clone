@@ -12,10 +12,10 @@ const DisplayVideos = ({videos}) => {
                         <div>
                              <img src={video.snippet.thumbnails.medium.url} alt="" />
                         </div>
-                        <div>
+                        <div className="display-title">
                             <h1>{video.snippet.title}</h1>
                         </div>
-                        <div>
+                        <div className="display-description">
                             <p>{video.snippet.description}</p>
                         </div>
                         {/* Link to video page, passing in the videoId as a URL param */}

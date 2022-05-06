@@ -21,7 +21,7 @@ const SearchResultsPage = (props) => {
                 return (
                     <div>
                         <div>
-                        <img src={video.snippet.thumbnails.default.url} alt="" />
+                        <img src={video.snippet.thumbnails.medium.url} alt="" />
                         </div>
                         <div>
                             <h1>{video.snippet.title}</h1>
