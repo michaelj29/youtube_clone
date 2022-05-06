@@ -1,15 +1,18 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom";
 import { KEY } from "../../localKey"
 import axios from "axios";
 import { Link } from "react-router-dom";
 
+
 const VideoPage = () => {
-    const params = useParams()
+    const { videoId, title, description } = useParams()
     const [videos, setVideos] = useState([]);
 
-    // now that you have the id from the url,make a get request ot get the video link
-    const videoId = params && params.videoId
+
+
+
+    console.log(videoId)
     
     useEffect(() => {
         const fetchVideos = async () => {
@@ -35,24 +38,32 @@ const VideoPage = () => {
             src={`https://www.youtube.com/embed/${videoId}?autoplay=1&origin=http://example.com`}
             frameBorder="0">
   </iframe>
+          <div>
+           <h3>{title}</h3>
+           <p>{description}</p>
+          </div>
          <div>
              Related Videos Go Here
              {videos.map((video) => {
-               
-                return (
-                    <div>
-                        <div>
-                        <img src={video.snippet.thumbnails.default.url} alt="" />
-                        </div>
-                        <div>
-                            <h1>{video.snippet.title}</h1>
-                        </div>
-                        <div>
-                            <p>{video.snippet.description}</p>
-                        </div>
-                        <Link to={`/video/${video.id.videoId}`}>Go To Video</Link>
-                    </div>
-                );
+               if(video.snippet){
+                 
+                 return (
+                     <div>
+                         <div>
+                         <img src={video.snippet.thumbnails.default.url} alt="" />
+                         </div>
+                         <div>
+                             <h1>{video.snippet.title}</h1>
+                         </div>
+                         <div>
+                             <p>{video.snippet.description}</p>
+                         </div>
+                         <Link to={`/video/${video.id.videoId}/${video.snippet.title}/${video.snippet.description}`}>Go To Video</Link>
+                     </div>
+                 );
+               } else {
+                 return null;
+               }
             })}
          </div>
 

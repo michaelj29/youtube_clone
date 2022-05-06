@@ -17,7 +17,7 @@ const SearchResultsPage = (props) => {
          <div>
              Related Videos Go Here
              {props.videos.map((video) => {
-               const videoId = video.id.videoId
+
                 return (
                     <div>
                         <div>
@@ -29,7 +29,7 @@ const SearchResultsPage = (props) => {
                         <div>
                             <p>{video.snippet.description}</p>
                         </div>
-                        <Link to={`/video/${video.id.videoId}`}>Go To Video</Link>
+                        <Link to={`/video/${video.id.videoId}/${video.snippet.title}`}>Go To Video</Link>
                     </div>
                 );
             })}

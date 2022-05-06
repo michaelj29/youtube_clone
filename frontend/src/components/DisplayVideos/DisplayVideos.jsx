@@ -7,7 +7,6 @@ const DisplayVideos = ({videos}) => {
         <div>DISPLAY
             {videos.map((video) => {
                 // get video id
-                const videoId = video.id.videoId
                 return (
                     <div>
                         <div>
@@ -20,7 +19,7 @@ const DisplayVideos = ({videos}) => {
                             <p>{video.snippet.description}</p>
                         </div>
                         {/* Link to video page, passing in the videoId as a URL param */}
-                        <Link to={`/video/${videoId}`}>Go To Video</Link>
+                        <Link to={`/video/${video.id.videoId}/${video.snippet.title}`}>Go To Video</Link>
                     </div>
                 );
             })}
