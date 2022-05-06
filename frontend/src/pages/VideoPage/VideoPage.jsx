@@ -44,7 +44,7 @@ const VideoPage = () => {
            <h3>{title}</h3>
            <p>{description}</p>
           </div>
-          <AddComment />
+          <AddComment videoId={`https://www.youtube.com/embed/${videoId}?autoplay=1&origin=http://example.com`}/>
          <div>
              Related Videos Go Here
              {videos.map((video) => {
