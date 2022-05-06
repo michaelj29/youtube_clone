@@ -29,7 +29,7 @@ const SearchResultsPage = (props) => {
                         <div>
                             <p>{video.snippet.description}</p>
                         </div>
-                        <Link to={`/searchResults/${video.id.videoId}`}>Go To Video</Link>
+                        <Link to={`/video/${video.id.videoId}`}>Go To Video</Link>
                     </div>
                 );
             })}
