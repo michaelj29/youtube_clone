@@ -1,19 +1,22 @@
 import axios from "axios";
 import React, { useState, useEffect } from 'react';
-
+import { useParams} from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 
 
-const AddComment = ({videoId}) => {
+const AddComment = () => {
+    const { videoId } = useParams()
     const [comment, setComment] = useState("");
     const [user, token] = useAuth();
+    
 
     async function handleSubmit(event){
         event.preventDefault();
         let videoComment = {
-          video_id: JSON.stringify(videoId),
+          video_id: videoId,
           text: comment 
         }
+        console.log(videoId)
         console.log(videoComment)
         try {
           let response = await axios.post('http://127.0.0.1:8000/api/comments/', videoComment ,{

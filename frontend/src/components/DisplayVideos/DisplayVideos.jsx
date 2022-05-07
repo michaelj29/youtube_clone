@@ -5,11 +5,11 @@ const DisplayVideos = ({videos}) => {
 
     return ( 
         <div>DISPLAY
-            {videos.map((video) => {
+            {videos.map((video, index) => {
                 // get video id
                 return (
                     <div>
-                        <div>
+                        <div key={index}>
                              <img src={video.snippet.thumbnails.medium.url} alt="" />
                         </div>
                         <div className="display-title">
