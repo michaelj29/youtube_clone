@@ -4,6 +4,7 @@ import { KEY } from "../../localKey"
 import axios from "axios";
 import { Link } from "react-router-dom";
 import AddComment from "../../components/AddComment/AddComment";
+import DisplayComments from "../../components/DisplayComments/DisplayComments";
 
 
 const VideoPage = () => {
@@ -44,6 +45,7 @@ const VideoPage = () => {
            <h3>{title}</h3>
            <p>{description}</p>
           </div>
+          <DisplayComments videoId={`https://www.youtube.com/embed/${videoId}?autoplay=1&origin=http://example.com`}/>
           <AddComment videoId={`https://www.youtube.com/embed/${videoId}?autoplay=1&origin=http://example.com`}/>
          <div>
              Related Videos Go Here
