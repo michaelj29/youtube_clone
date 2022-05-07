@@ -47,7 +47,7 @@ function App() {
         <Route path="/searchResults" element={<SearchResultsPage videos={videos} />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
-        <Route path="/video/:videoId/:title/:description" element={<VideoPage/>} />
+        <Route path="/video/:videoId" element={<VideoPage/>} />
       </Routes>
       <Footer />
     </div>

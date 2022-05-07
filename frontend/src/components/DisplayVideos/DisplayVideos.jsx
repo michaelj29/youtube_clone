@@ -19,7 +19,7 @@ const DisplayVideos = ({videos}) => {
                             <p>{video.snippet.description}</p>
                         </div>
                         {/* Link to video page, passing in the videoId as a URL param */}
-                        <Link to={`/video/${video.id.videoId}/${video.snippet.title}/${video.snippet.description}`}>Go To Video</Link>
+                        <Link to={`/video/${video.id.videoId}`}>Go To Video</Link>
                     </div>
                 );
             })}

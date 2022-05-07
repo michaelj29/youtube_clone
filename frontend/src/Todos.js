@@ -1,33 +1,35 @@
 // Home Page 
-    //TO DISPLAY 5 RANDOM VIDEOS TO HOMEPAGE USER IS LOGGED OUT
+    //TODO: DISPLAY 5 RANDOM VIDEOS TO HOMEPAGE USER IS LOGGED OUT
         //STEPS: 
-        // Get the Videos to Display:
-            //Make a GET Request through axios 
-            //Map out the GET Request 
-            //Pass in the DisplayVideos Component the five random videos 
-        //Make the Videos clickable 
-            //User will be taken to another page (Individual Video page without comments or Search Results Page)
+        // TODO:  Get the Videos to Display:
+            //!Make a GET Request through axios 
+            //!Map out the GET Request 
+            //!Pass in the DisplayVideos Component the five random videos 
+        // TODO: Make the Videos clickable 
+            //!User will be taken to another page (Individual Video page without comments or Search Results Page)
 
-    //SearchBar Functionality
-        //Search the youtube database via GET Request
-        //GET request will return items based on the search event
-        //The user will be taken to the Search Results Page
+    //TODO: SearchBar Functionality
+        //!Search the youtube database via GET Request
+        //!GET request will return items based on the search event
+        //!The user will be taken to the Search Results Page
             
-    //Search Results Page
-         // Get the Videos to Display based on our Search Results:
-            //Make a GET Request through axios 
-            //Map out the GET Request 
-            //Pass in the DisplayVideos Component the five related videos 
-        //Make the Videos clickable 
-            //User will be taken to another page (Individual Video page without comments)       
+    //TODO: Search Results Page
+         //TODO: Get the Videos to Display based on our Search Results:
+            //!Make a GET Request through axios 
+            //!Map out the GET Request 
+            //!Pass in the DisplayVideos Component with related videos 
+        //TODO: Make the Videos clickable 
+            //!User will be taken to another page (Individual Video page without being able to comment)       
     
-    //Individual Video Page USER LOGGED OUT
-        //Display Chosen Video
+    //TODO: Individual Video Page USER LOGGED OUT
+        //TODO: Display Chosen Video
             //GET Request for specific video using the video_Id 
-        //Display related Videos 
+        //TODO: Display related Videos 
             //Get Request for related videos 
             //Map out the Get Request for related videos 
             //Make related videos clickable
+
+        
 
 
 

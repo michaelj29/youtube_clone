@@ -8,27 +8,44 @@ import DisplayComments from "../../components/DisplayComments/DisplayComments";
 
 
 const VideoPage = () => {
-    const { videoId, title, description } = useParams()
-    const [videos, setVideos] = useState([]);
+    const { videoId } = useParams()
+    const [relatedVideos, setRelatedVideos] = useState([]);
+    const [title, setTitle] = useState('Video Title')
+    const [description, setDescription] = useState('Video Description')
 
 
 
 
     console.log(videoId)
+    useEffect(() => {
+      const fetchVideo = async () => {
+        try {
+          let response = await axios.get(`https://www.googleapis.com/youtube/v3/videos?key=${KEY}&id=${videoId}&part=snippet`, {
+          });
+          setDescription(response.data.items[0].snippet.description)
+          setTitle(response.data.items[0].snippet.title)
+        } catch (error) {
+          console.log(error.message);
+        }
+      };
+       fetchVideo();
+    }, [videoId]);
+
     
     useEffect(() => {
-        const fetchVideos = async () => {
+        const fetchRelatedVideos = async () => {
           try {
             let response = await axios.get(`https://www.googleapis.com/youtube/v3/search?key=${KEY}&part=snippet&maxResults=2&type=video&relatedToVideoId=${videoId}`, {
             });
-            console.log(response.data.items)
-            setVideos(response.data.items);
+            setRelatedVideos(response.data.items);
           } catch (error) {
             console.log(error.message);
           }
         };
-         fetchVideos();
+         fetchRelatedVideos();
       }, [videoId]);
+
+
 
     return ( 
         <div>
@@ -49,7 +66,7 @@ const VideoPage = () => {
           <AddComment videoId={`https://www.youtube.com/embed/${videoId}?autoplay=1&origin=http://example.com`}/>
          <div>
              Related Videos Go Here
-             {videos.map((video, index) => {
+             {relatedVideos.map((video, index) => {
                if(video.snippet){
                  
                  return (
@@ -63,7 +80,7 @@ const VideoPage = () => {
                          <div>
                              <p>{video.snippet.description}</p>
                          </div>
-                         <Link to={`/video/${video.id.videoId}/${video.snippet.title}/${video.snippet.description}`}>Go To Video</Link>
+                         <Link to={`/video/${video.id.videoId}`}>Go To Video</Link>
                      </div>
                  );
                } else {
