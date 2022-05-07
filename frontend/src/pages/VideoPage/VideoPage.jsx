@@ -18,7 +18,7 @@ const VideoPage = () => {
     useEffect(() => {
         const fetchVideos = async () => {
           try {
-            let response = await axios.get(`https://www.googleapis.com/youtube/v3/search?key=${KEY}&part=snippet&type=video&relatedToVideoId=${videoId}`, {
+            let response = await axios.get(`https://www.googleapis.com/youtube/v3/search?key=${KEY}&part=snippet&maxResults=2&type=video&relatedToVideoId=${videoId}`, {
             });
             console.log(response.data.items)
             setVideos(response.data.items);
@@ -47,11 +47,11 @@ const VideoPage = () => {
           <AddComment videoId={`https://www.youtube.com/embed/${videoId}?autoplay=1&origin=http://example.com`}/>
          <div>
              Related Videos Go Here
-             {videos.map((video) => {
+             {videos.map((video, index) => {
                if(video.snippet){
                  
                  return (
-                     <div>
+                     <div key={index}>
                          <div>
                          <img src={video.snippet.thumbnails.default.url} alt="" />
                          </div>
