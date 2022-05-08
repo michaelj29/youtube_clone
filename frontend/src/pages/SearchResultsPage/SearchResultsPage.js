@@ -1,25 +1,16 @@
 import React, { useEffect } from 'react';
-
 import { Link, useParams } from 'react-router-dom';
 
 const SearchResultsPage = (props) => {
     const {search} = useParams()
 
-
-
-    useEffect(() => {
-
-      }, []);
-
-
     return ( 
         <div>
          <div>
-             Related Videos Go Here
              {props.videos.map((video) => {
 
                 return (
-                    <div>
+                    <div style={{'margin-bottom': '80px'}}>
                         <div>
                         <img src={video.snippet.thumbnails.medium.url} alt="" />
                         </div>

@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="xlZZV0PuKHsLuuf4E0ks" name="Page-1">
-        <mxGraphModel dx="2036" dy="1828" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+        <mxGraphModel dx="2189" dy="1833" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -92,7 +92,7 @@
                 <mxCell id="28" value="&lt;span style=&quot;color: rgb(0 , 0 , 0) ; font-family: &amp;#34;times&amp;#34; ; font-size: medium&quot;&gt;&lt;b&gt;(5 points) As a user, I want to be able to play a YouTube video in the embedded video player (iframe tag).&lt;/b&gt;&lt;/span&gt;" style="rounded=1;arcSize=10;whiteSpace=wrap;html=1;align=center;fillColor=#ffcc99;strokeColor=#36393d;" parent="1" vertex="1">
                     <mxGeometry x="-200" y="467.5" width="300" height="80" as="geometry"/>
                 </mxCell>
-                <mxCell id="30" value="&lt;span style=&quot;color: rgb(0 , 0 , 0) ; font-family: &amp;#34;times&amp;#34; ; font-size: medium&quot;&gt;(5 points) As a user, I want to see the title and description of the currently playing video.&lt;/span&gt;" style="rounded=1;arcSize=10;whiteSpace=wrap;html=1;align=center;fillColor=#ffcc99;strokeColor=#36393d;" parent="1" vertex="1">
+                <mxCell id="30" value="&lt;span style=&quot;color: rgb(0 , 0 , 0) ; font-family: &amp;#34;times&amp;#34; ; font-size: medium&quot;&gt;&lt;b&gt;(5 points) As a user, I want to see the title and description of the currently playing video.&lt;/b&gt;&lt;/span&gt;" style="rounded=1;arcSize=10;whiteSpace=wrap;html=1;align=center;fillColor=#ffcc99;strokeColor=#36393d;" parent="1" vertex="1">
                     <mxGeometry x="-200" y="570" width="300" height="60" as="geometry"/>
                 </mxCell>
                 <mxCell id="38" value="" style="edgeStyle=none;html=1;" parent="1" source="34" target="36" edge="1">

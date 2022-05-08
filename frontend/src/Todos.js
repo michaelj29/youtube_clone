@@ -29,6 +29,9 @@
             //Map out the Get Request for related videos 
             //Make related videos clickable
 
+    //TODO POST A COMMENT
+        //TODO: Make a post request
+            //once we make the post request immediately make a get request to display the comment
         
 
 

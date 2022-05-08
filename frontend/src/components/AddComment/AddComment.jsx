@@ -3,12 +3,14 @@ import React, { useState, useEffect } from 'react';
 import { useParams} from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 
-
 const AddComment = () => {
     const { videoId } = useParams()
     const [comment, setComment] = useState("");
     const [user, token] = useAuth();
-    
+ 
+    function refreshPage() {
+      window.location.reload(false);
+    }
 
     async function handleSubmit(event){
         event.preventDefault();
@@ -16,8 +18,7 @@ const AddComment = () => {
           video_id: videoId,
           text: comment 
         }
-        console.log(videoId)
-        console.log(videoComment)
+      refreshPage();
         try {
           let response = await axios.post('http://127.0.0.1:8000/api/comments/', videoComment ,{
             headers: {
@@ -29,14 +30,13 @@ const AddComment = () => {
         }
     }
 
-
     return ( 
         <form onSubmit={handleSubmit}>
-        <div className='content'>
+        <div className='content' style={{'margin-bottom': '20px'}}>
             <label className='post-label'>Post</label>
 
             <textarea className='post-input' rows='10' cols="10" value={comment} onChange={(event) => setComment(event.target.value)}/>
-            <button className='submit-button' type='submit'>Create</button>
+            <button className='submit-button' type='submit' >Create</button>
         </div>
     </form>
      );

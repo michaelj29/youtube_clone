@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 import { Button, Form, FormControl } from 'react-bootstrap'
 
-
 const SearchBar = (props) => {
-
     const [search, setSearch] = useState('');
 
     function handleSubmit(event){
