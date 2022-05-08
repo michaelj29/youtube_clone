@@ -62,13 +62,14 @@ const VideoPage = () => {
                  
                  return (
                      <div key={index} style={{'margin-bottom': '80px'}}>
-                         <div>
-                         <img src={video.snippet.thumbnails.default.url} alt="" />
-                         </div>
-                         <div>
-                             <h1>{video.snippet.title}</h1>
-                         </div>
-                         <Link to={`/video/${video.id.videoId}`}>Go To Video</Link>
+                         <Link to={`/video/${video.id.videoId}`}>
+                          <div>
+                              <img src={video.snippet.thumbnails.default.url} alt="" />
+                          </div>
+                          <div>
+                              <h1>{video.snippet.title}</h1>
+                          </div>
+                         </Link>
                      </div>
                  );
                } else {
