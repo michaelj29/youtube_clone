@@ -15,9 +15,6 @@ const DisplayVideos = ({videos}) => {
                         <div className="display-title">
                             <h1>{video.snippet.title}</h1>
                         </div>
-                        <div>
-                            <p>{video.snippet.description}</p>
-                        </div>
                         <Link to={`/video/${video.id.videoId}`}>Go To Video</Link>
                     </div>
                 );

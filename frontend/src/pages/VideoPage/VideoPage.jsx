@@ -55,7 +55,7 @@ const VideoPage = () => {
            <p>{description}</p>
           </div>
           <DisplayComments videoId={videoId}/>
-          <AddComment videoId={videoId} style={{'margin-bottom': '80px'}}/>
+          <AddComment videoId={videoId}/>
          <div>
              {relatedVideos.map((video, index) => {
                if(video.snippet){
@@ -67,9 +67,6 @@ const VideoPage = () => {
                          </div>
                          <div>
                              <h1>{video.snippet.title}</h1>
-                         </div>
-                         <div>
-                             <p>{video.snippet.description}</p>
                          </div>
                          <Link to={`/video/${video.id.videoId}`}>Go To Video</Link>
                      </div>
