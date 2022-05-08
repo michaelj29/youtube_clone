@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import React from 'react';
+import { Link} from 'react-router-dom';
 
 const SearchResultsPage = (props) => {
-    const {search} = useParams()
+    
 
     return ( 
         <div>
