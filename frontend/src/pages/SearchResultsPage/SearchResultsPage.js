@@ -11,13 +11,14 @@ const SearchResultsPage = (props) => {
 
                 return (
                     <div style={{'margin-bottom': '80px'}}>
+                        <Link to={`/video/${video.id.videoId}`}>
                         <div>
                         <img src={video.snippet.thumbnails.medium.url} alt="" />
                         </div>
                         <div>
                             <h1>{video.snippet.title}</h1>
                         </div>
-                        <Link to={`/video/${video.id.videoId}`}>Go To Video</Link>
+                        </Link>
                     </div>
                 );
             })}
