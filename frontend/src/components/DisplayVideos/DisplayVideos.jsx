@@ -1,21 +1,22 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "./DisplayVideos.css"
 
 
 const DisplayVideos = ({videos}) => {
 
     return ( 
-        <div >
+        <div class="flex-container">
             {videos.map((video, index) => {
                 // get video id
                 return (
-                    <div  style={{'margin-bottom': '80px'}}>
-                        <Link to={`/video/${video.id.videoId}`}>
-                            <div key={index}>
+                    <div className="flex-item">
+                        <Link to={`/video/${video.id.videoId}`} >
+                            <div key={index}  >
                                 <img src={video.snippet.thumbnails.medium.url} alt="" />
                             </div>
-                            <div>
-                                <div >{video.snippet.title}</div>
+                            <div >
+                                <h6>{video.snippet.title}</h6>
                             </div> 
                         </Link>
                     </div>
