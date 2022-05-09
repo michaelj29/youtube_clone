@@ -26,7 +26,7 @@ function App() {
 
   const searchVideos = async (searchTerm) => {
     try {
-      let response = await axios.get(`https://www.googleapis.com/youtube/v3/search?q=${searchTerm}&key=${KEY}&part=snippet&type=video&maxResults=2`, {
+      let response = await axios.get(`https://www.googleapis.com/youtube/v3/search?q=${searchTerm}&key=${KEY}&part=snippet&type=video&maxResults=5`, {
         // headers: {
         //   Authorization: "Bearer " + token,
         // },

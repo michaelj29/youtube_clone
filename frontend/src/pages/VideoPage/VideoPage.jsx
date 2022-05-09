@@ -5,6 +5,7 @@ import axios from "axios";
 import AddComment from "../../components/AddComment/AddComment";
 import DisplayComments from "../../components/DisplayComments/DisplayComments";
 import "./VideoPage.css"
+
 const VideoPage = () => {
     const { videoId } = useParams()
     const [relatedVideos, setRelatedVideos] = useState([]);
@@ -65,7 +66,7 @@ const VideoPage = () => {
                  return (
                      <div key={index} className="flex-item">
                          <Link to={`/video/${video.id.videoId}`}>
-                          <div className="flex-item">
+                          <div>
                               <img src={video.snippet.thumbnails.medium.url} alt="" />
                           </div>
                           <div>
