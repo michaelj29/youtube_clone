@@ -6,7 +6,7 @@ import "./DisplayVideos.css"
 const DisplayVideos = ({videos}) => {
 
     return ( 
-        <div class="flex-container">
+        <div className="flex-container">
             {videos.map((video, index) => {
                 // get video id
                 return (

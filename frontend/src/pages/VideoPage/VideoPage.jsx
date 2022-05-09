@@ -4,7 +4,7 @@ import { KEY } from "../../localKey"
 import axios from "axios";
 import AddComment from "../../components/AddComment/AddComment";
 import DisplayComments from "../../components/DisplayComments/DisplayComments";
-
+import "./VideoPage.css"
 const VideoPage = () => {
     const { videoId } = useParams()
     const [relatedVideos, setRelatedVideos] = useState([]);
@@ -29,7 +29,7 @@ const VideoPage = () => {
     useEffect(() => {
         const fetchRelatedVideos = async () => {
           try {
-            let response = await axios.get(`https://www.googleapis.com/youtube/v3/search?key=${KEY}&part=snippet&maxResults=3&type=video&relatedToVideoId=${videoId}`, {
+            let response = await axios.get(`https://www.googleapis.com/youtube/v3/search?key=${KEY}&part=snippet&maxResults=5&type=video&relatedToVideoId=${videoId}`, {
             });
             setRelatedVideos(response.data.items);
           } catch (error) {
@@ -50,24 +50,26 @@ const VideoPage = () => {
             src={`https://www.youtube.com/embed/${videoId}?autoplay=1&origin=http://example.com`}
             frameBorder="0">
   </iframe>
-          <div>
+          <div className="video-details">
            <h3>{title}</h3>
            <p>{description}</p>
           </div>
+          <div className="video-details">
           <DisplayComments videoId={videoId}/>
           <AddComment videoId={videoId}/>
-         <div>
+          </div>
+         <div className="flex-container">
              {relatedVideos.map((video, index) => {
                if(video.snippet){
                  
                  return (
-                     <div key={index} style={{'margin-bottom': '80px'}}>
+                     <div key={index} className="flex-item">
                          <Link to={`/video/${video.id.videoId}`}>
-                          <div>
-                              <img src={video.snippet.thumbnails.default.url} alt="" />
+                          <div className="flex-item">
+                              <img src={video.snippet.thumbnails.medium.url} alt="" />
                           </div>
                           <div>
-                              <h1>{video.snippet.title}</h1>
+                              <h6 >{video.snippet.title}</h6>
                           </div>
                          </Link>
                      </div>
