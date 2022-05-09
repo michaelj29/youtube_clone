@@ -6,5 +6,22 @@
 .display-description{
     font-family: Arial, Helvetica, sans-serif;
     font-size: 20px;
-    color: steelblue;
+    color: rgb(0, 0, 0);
 }
+
+Link{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  
+    /* CSS just to show the bounds */
+    border: 2px solid;
+    background-color: #eee
+
+}
+.text {
+    width: 20%;
+    inline-size: 10px; 
+    overflow-wrap: break-word;
+  }
